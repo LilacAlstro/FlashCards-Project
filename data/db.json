@@ -1,0 +1,51 @@
+{
+  "decks": [
+    {
+      "name": "Deck",
+      "description": "Brief",
+      "id": 1
+    },
+    {
+      "name": "Test",
+      "description": "B",
+      "id": 2
+    },
+    {
+      "name": "Test",
+      "description": "C",
+      "id": 3
+    }
+  ],
+  "cards": [
+    {
+      "front": "First but not edited",
+      "back": "back",
+      "deckId": 1,
+      "id": 1
+    },
+    {
+      "front": "Second",
+      "back": "back",
+      "deckId": 1,
+      "id": 2
+    },
+    {
+      "front": "Third",
+      "back": "back",
+      "deckId": 1,
+      "id": 3
+    },
+    {
+      "front": "Forth",
+      "back": "back",
+      "deckId": 1,
+      "id": 4
+    },
+    {
+      "front": "Fifth",
+      "back": "back",
+      "deckId": 1,
+      "id": 5
+    }
+  ]
+}
