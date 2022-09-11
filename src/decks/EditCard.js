@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
-import { createDeck, readCard, readDeck, updateCard } from "../utils/api/index";
+import { readCard, readDeck, updateCard } from "../utils/api/index";
 
 function EditCard(){
     const {deckId, cardId} = useParams();
@@ -35,7 +35,7 @@ function EditCard(){
             };
         }
         loadReadCard();        
-    }, []);
+    }, [cardId]);
 
     useEffect(() => {
         async function loadReadDeck() {
@@ -51,7 +51,7 @@ function EditCard(){
             };
         }
         loadReadDeck();
-    }, []);
+    }, [deckId]);
     
     const handleChange = ({ target }) => {
         setCard({

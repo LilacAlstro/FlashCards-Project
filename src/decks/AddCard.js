@@ -27,7 +27,7 @@ function AddCard() {
             };
         }
         loadReadDeck();
-    }, []);
+    }, [deckId]);
 
 
     async function handleSubmit(event) {

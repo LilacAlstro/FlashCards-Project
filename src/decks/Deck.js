@@ -24,9 +24,8 @@ function Deck() {
             };
             
         }
-        loadReadDeck();   
-        console.log(deck);     
-    }, []);
+        loadReadDeck();        
+    }, [deckId]);
 
     const history = useHistory();
 
@@ -47,6 +46,7 @@ function Deck() {
         if (window.confirm("You will not be able to recover it")){
             await deleteDeck(deck)
         }
+        else
         {
             history.push("/");
         }
@@ -56,6 +56,7 @@ function Deck() {
         if(window.confirm("You will not be able to recover it")){
             await deleteCard(card)
         }
+        else
         {history.go(0)};
     }
 

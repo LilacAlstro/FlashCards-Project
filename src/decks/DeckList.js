@@ -30,6 +30,7 @@ function DeckList(){
         if (window.confirm("You will not be able to recover it")){
             await deleteDeck(deck)
         }
+        else
         {
             history.go(0);
         }

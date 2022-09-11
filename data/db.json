@@ -18,7 +18,7 @@
   ],
   "cards": [
     {
-      "front": "First but not edited",
+      "front": "First front",
       "back": "back",
       "deckId": 1,
       "id": 1
@@ -46,6 +46,12 @@
       "back": "back",
       "deckId": 1,
       "id": 5
+    },
+    {
+      "front": "Deck",
+      "back": "Id",
+      "deckId": 1,
+      "id": 6
     }
   ]
 }

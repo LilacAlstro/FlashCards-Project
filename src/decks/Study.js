@@ -23,7 +23,7 @@ function Study() {
             };
         }
         loadReadDeck();
-    }, []);
+    }, [deckId]);
 
     const handleFlip = () => {
         if (front){
