@@ -1,43 +1,31 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { createCard, readDeck } from "../utils/api/index";
+import CardForm from "./CardForm";
 
 function AddCard() {
     const { deckId } = useParams();
     const history = useHistory();
-    const initialState = {
-        front: "",
-        back: "",
-    };
 
-    const [newCard, setNewCard] = useState(initialState);
     const [deck, setDeck] = useState({});
 
     useEffect(() => {
         async function loadReadDeck() {
-            const abortController = new AbortController();
-            try {
-                const response = await readDeck(deckId, abortController.signal);
+           
+                const response = await readDeck(deckId);
                 setDeck(response);
-            } catch (error) {
-                console.error("error", error);
-            }
-            return () => {
-                abortController.abort();
-            };
         }
         loadReadDeck();
     }, [deckId]);
 
 
-    async function handleSubmit(event) {
-        event.preventDefault();        
+    async function handleSubmit(card) {               
         const response = await createCard(
             deckId,
-            { ...newCard },            
+            { ...card },            
         );
         history.go(0);
-        setNewCard(initialState);
+       
         return response;
     }
 
@@ -45,16 +33,24 @@ function AddCard() {
         history.push(`/decks/${deckId}`);
     }
 
+return (
+    <div>
+        <ol className="breadcrumb">
+                <li className="breadcrumb-item">
+                    <Link to="/">Home</Link>
+                </li>
+                <li className="breadcrumb-item">
+                    <Link to={`/decks/${deckId}`}>{deck.name}</Link>
+                </li>
+                <li className="breadcrumb-item active">Add Card</li>
+            </ol>           
+            <CardForm handlePrimary={handleSubmit} handleSecondary={handleDone} primaryButton="Save" secondaryButton="Done"/>        
 
-    const handleChange = ({ target }) => {
-        setNewCard({
-            ...newCard,
-            [target.name]: target.value,
-        });
-    }
-
+    </div>
+)
     
-    return (
+    
+  /*  return (
         <div>
             <ol className="breadcrumb">
                 <li className="breadcrumb-item">
@@ -97,7 +93,7 @@ function AddCard() {
                 </button>
             </form>
         </div>
-    );
+    );*/
 }
 
 export default AddCard;
